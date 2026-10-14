@@ -1,0 +1,78 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🧠 MindGraphNet: Launch Streamlit Dashboard",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/streamlit.exe",
+            "args": [
+                "run",
+                "MindGraphNet/dashboard/streamlit_app.py",
+                "--server.port=8501"
+            ],
+            "options": {
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}",
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "🚀 MindGraphNet: Run Pipeline Script",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "args": [
+                "MindGraphNet/MindGraphNet_Enhanced_Pipeline.py"
+            ],
+            "options": {
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}",
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "⚡ MindGraphNet: Start FastAPI Backend",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/uvicorn.exe",
+            "args": [
+                "MindGraphNet.api.app:app",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "8000",
+                "--reload"
+            ],
+            "options": {
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}",
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "🧪 MindGraphNet: Run Unit Tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+            "args": [
+                "-m",
+                "unittest",
+                "MindGraphNet/tests/test_pipeline.py"
+            ],
+            "options": {
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}",
+                    "PYTHONIOENCODING": "utf-8"
+                }
+            },
+            "problemMatcher": []
+        }
+    ]
+}
